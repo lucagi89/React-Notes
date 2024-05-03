@@ -3,6 +3,7 @@ import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 import Split from "react-split"
 import { nanoid } from "nanoid"
+import { notesCollection } from "./firebase"
 
 export default function App() {
     const [notes, setNotes] = React.useState(
@@ -11,9 +12,9 @@ export default function App() {
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0]?.id) || ""
     )
-    
-    const currentNote = 
-        notes.find(note => note.id === currentNoteId) 
+
+    const currentNote =
+        notes.find(note => note.id === currentNoteId)
         || notes[0]
 
     React.useEffect(() => {
